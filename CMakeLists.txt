@@ -1,0 +1,16 @@
+cmake_minimum_required (VERSION 3.5.2)
+project (gameoflife)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+find_package(glfw3 3.2 REQUIRED)
+add_executable(gol "main.cpp")
+target_link_libraries(gol glfw)
+
+find_package(OpenGL REQUIRED)
+
+message(STATUS ${OPENGL_gl_LIBRARY})
+message(STATUS ${OPENGL_INCLUDE_DIR})
+target_include_directories(gol PUBLIC ${OPENGL_INCLUDE_DIR})
+target_link_libraries(gol ${OPENGL_gl_LIBRARY})
