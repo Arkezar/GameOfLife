@@ -9,8 +9,5 @@ add_executable(gol "main.cpp")
 target_link_libraries(gol glfw)
 
 find_package(OpenGL REQUIRED)
-
-message(STATUS ${OPENGL_gl_LIBRARY})
-message(STATUS ${OPENGL_INCLUDE_DIR})
 target_include_directories(gol PUBLIC ${OPENGL_INCLUDE_DIR})
 target_link_libraries(gol ${OPENGL_gl_LIBRARY})
